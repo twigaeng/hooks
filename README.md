@@ -13,18 +13,24 @@ npm install --save @twigaeng/react-hooks
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React from 'react'
 
-import { useMyHook } from '@twigaeng/react-hooks'
+import { useSalesDays } from '@twigaeng/react-hooks/'
 
-const Example = () => {
-  const example = useMyHook()
+const App = () => {
+  const date = new Date();
+  const today = date.getDay();
+  const tomorrow = today + 1;
+  const isTodayASalesDay = useSalesDays([today])
+  const isTomorrowASalesDay = useSalesDays([tomorrow])
   return (
     <div>
-      {example}
+      <p>Is today a sales days? {isTodayASalesDay.toString()}</p>
+      <p>Is tomorrow a sales days? {isTomorrowASalesDay.toString()}</p>
     </div>
   )
 }
+export default App
 ```
 
 ## License
