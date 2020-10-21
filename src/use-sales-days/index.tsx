@@ -5,9 +5,9 @@ const useSalesDays = (workingDays: number[]): Boolean => {
   const [isASalesDay, setSalesDay] = useState(false);
 
   useEffect(() => {
-    const todaysDate = new Date();
-      const dayOfTheWeek = todaysDate.getDay();
-      const isTodayASalesDay = workingDays.includes(dayOfTheWeek);
+    const date = new Date();
+      const today = date.getDay();
+      const isTodayASalesDay = workingDays.includes(today);
         if (isTodayASalesDay) setSalesDay(true)
 
   }, [workingDays])
